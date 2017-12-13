@@ -21,7 +21,7 @@
                     <p:inputText value="#{moto.cor}"/>
                     
                 </p:panelGrid>
-                <p:commandButton value ="Cadastrar" action="#{fachada.inserirMoto(moto)}"
+                <p:commandButton value ="Cadastrar" action="#{motoController.cadastrar()}"
                                  oncomplete ="PF('widDialConfirmCadMoto').show()"/>
                     
                 </p:fieldset>    
