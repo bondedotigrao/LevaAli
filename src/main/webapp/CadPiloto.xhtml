@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Cadastrar Piloto</title>
+    </h:head>
+    <h:body>
+       
+        <p:growl id="gro" life="4000"/>
+
+        <h:form id="formCadPiloto">
+
+
+            <p:fieldset legend="Cadastro do Piloto">
+                <p:panelGrid columns="2">
+                    <h:outputText value="Nome: "/>
+                    <p:inputText value="#{pilotoController.selectedPiloto.nome}" required="true"
+                                 requiredMessage="Nome Obrigatório"/>
+                                 
+                    <h:outputText value="CPF:"/>
+                    <p:inputMask value="#{pilotoController.selectedPiloto.cpf}"mask="999.999.999-99" required="true" requiredMessage="CPF Obrigatório"/>
+                    <p:message for='txtCPF' />
+                    
+                    <h:outputText value="Endereço:"/>
+                    <p:inputText value="#{pilotoController.selectedPiloto.endereco}"/>
+                    
+                    <h:outputText value="DataNasc:"/>
+                    <p:inputMask value="#{pilotoController.selectedPiloto.dataNasc}"mask="99/99/9999"/>
+                    
+                    <h:outputText value="Status:"/>
+                    <p:inputText value="#{pilotoController.selectedPiloto.status}"/>
+                    
+                    
+                    <h:outputText value="Moto:"/>
+                    <p:inputText value="#{pilotoController.selectedPiloto.moto}"/>
+               
+                    
+                    <p:layoutUnit position="center">
+                   Senhas e validações:
+                    </p:layoutUnit>
+                    </p:panelGrid>
+                
+                   <p:panelGrid columns="4">
+               
+
+                    <h:outputText value="Login:"/>
+                    <p:inputText value="#{pilotoController.selectedPiloto.login}"/>
+                    
+                    <h:outputText value="Senha:"/>
+                    <p:inputText value="#{pilotoController.selectedPiloto.senha}"/>
+
+                </p:panelGrid>
+                
+                <p:commandButton value ="Cadastrar Piloto" action="#{pilotoController.cadastrar()}"
+                                 oncomplete ="PF('widDialConfirmCadPiloto').show()"/>
+
+            </p:fieldset>    
+
+                <p:confirmDialog id ="dialConfirmCadPiloto" message="Piloto cadastrado com sucesso"
+                                 visible="false" widgetVar="widDialConfirmCadPiloto1"/>
+                
+            </p:dialog>
+
+        </h:form>
+    </h:body>
+</html>
+
+
